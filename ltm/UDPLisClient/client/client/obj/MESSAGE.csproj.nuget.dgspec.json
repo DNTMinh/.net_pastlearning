@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\super\\OneDrive\\Desktop\\hk1\\ltm\\FORM3-UDP\\MESSAGE\\MESSAGE.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\super\\OneDrive\\Desktop\\hk1\\ltm\\FORM3-UDP\\MESSAGE\\MESSAGE.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\super\\OneDrive\\Desktop\\hk1\\ltm\\FORM3-UDP\\MESSAGE\\MESSAGE.csproj",
+        "projectName": "client-UDP",
+        "projectPath": "C:\\Users\\super\\OneDrive\\Desktop\\hk1\\ltm\\FORM3-UDP\\MESSAGE\\MESSAGE.csproj",
+        "packagesPath": "C:\\Users\\super\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\super\\OneDrive\\Desktop\\hk1\\ltm\\FORM3-UDP\\client\\client\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\super\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "C:\\Users\\super\\OneDrive\\Desktop\\hk1\\ltm\\MESSAGE\\MESSAGE.csproj": {
+                "projectPath": "C:\\Users\\super\\OneDrive\\Desktop\\hk1\\ltm\\MESSAGE\\MESSAGE.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

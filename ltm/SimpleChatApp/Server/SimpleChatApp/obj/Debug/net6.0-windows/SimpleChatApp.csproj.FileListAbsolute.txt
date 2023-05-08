@@ -1,0 +1,17 @@
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\bin\Debug\net6.0-windows\SimpleChatApp.exe
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\bin\Debug\net6.0-windows\SimpleChatApp.deps.json
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\bin\Debug\net6.0-windows\SimpleChatApp.runtimeconfig.json
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\bin\Debug\net6.0-windows\SimpleChatApp.dll
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\bin\Debug\net6.0-windows\SimpleChatApp.pdb
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.csproj.AssemblyReference.cache
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.Server.resources
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.csproj.GenerateResource.cache
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.AssemblyInfoInputs.cache
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.AssemblyInfo.cs
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.csproj.CoreCompileInputs.cache
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.dll
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\refint\SimpleChatApp.dll
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.pdb
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\SimpleChatApp.genruntimeconfig.cache
+D:\HT\Nam4\hk1\ltm\Server\SimpleChatApp\obj\Debug\net6.0-windows\ref\SimpleChatApp.dll

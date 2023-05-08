@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "AsyncTcpClient/1.0.0": {
+        "runtime": {
+          "AsyncTcpClient.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "AsyncTcpClient/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

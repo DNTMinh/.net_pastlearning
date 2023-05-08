@@ -1,0 +1,17 @@
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\bin\Debug\net6.0-windows\AsyncTcpServer.exe
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\bin\Debug\net6.0-windows\AsyncTcpServer.deps.json
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\bin\Debug\net6.0-windows\AsyncTcpServer.runtimeconfig.json
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\bin\Debug\net6.0-windows\AsyncTcpServer.dll
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\bin\Debug\net6.0-windows\AsyncTcpServer.pdb
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.csproj.AssemblyReference.cache
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.Form1.resources
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.csproj.GenerateResource.cache
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.AssemblyInfoInputs.cache
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.AssemblyInfo.cs
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.csproj.CoreCompileInputs.cache
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.dll
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\refint\AsyncTcpServer.dll
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.pdb
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\AsyncTcpServer.genruntimeconfig.cache
+C:\Users\super\OneDrive\Desktop\hk1\ltm\FORM4\AsyncTcpServer\AsyncTcpServer\obj\Debug\net6.0-windows\ref\AsyncTcpServer.dll

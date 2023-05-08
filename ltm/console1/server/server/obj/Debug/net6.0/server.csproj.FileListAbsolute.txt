@@ -1,0 +1,15 @@
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\bin\Debug\net6.0\server.exe
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\bin\Debug\net6.0\server.deps.json
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\bin\Debug\net6.0\server.runtimeconfig.json
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\bin\Debug\net6.0\server.dll
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\bin\Debug\net6.0\server.pdb
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.csproj.AssemblyReference.cache
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.GeneratedMSBuildEditorConfig.editorconfig
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.AssemblyInfoInputs.cache
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.AssemblyInfo.cs
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.csproj.CoreCompileInputs.cache
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.dll
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\refint\server.dll
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.pdb
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\server.genruntimeconfig.cache
+D:\tam\DHSG\monhoc\LapTrinhMang\2022\T7\CONSOLE\server\server\obj\Debug\net6.0\ref\server.dll

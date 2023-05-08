@@ -1,0 +1,323 @@
+using System.Net;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Net.Sockets;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using MESSAGE;
+namespace server
+{
+    public partial class Form1 : Form
+    {
+        IPEndPoint iep ;
+        //Socket server ;
+        TcpListener server;// = new TcpListener(iep);
+        Dictionary<string, string> DS;
+        Dictionary<string, List<string>> DSNhom;
+        Dictionary<string, TcpClient> DSClient;
+        
+        bool active = false;
+        private void KhoiTaoUser()
+        {
+            DS = new Dictionary<string, string>();
+            DSNhom = new Dictionary<string, List<string>>();
+            char u;
+            for(u='A';u<'Z';u++)
+                DS.Add(u.ToString(), "123");
+            for(byte i = 0; i < 5; i++)
+            {
+                List<string> nhom = new List<string>();
+                for(byte j = 0; j < 3; j++)
+                {
+                    u = (Char)('A'+3 * i + j);
+                    nhom.Add(u.ToString());
+                }
+                DSNhom.Add("N"+i.ToString(), nhom);
+            }
+            DSClient = new Dictionary<string, TcpClient>();
+        }
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            string hostName = Dns.GetHostName(); // Retrive the Name of HOST
+            //Console.WriteLine(hostName);
+            // Get the IP
+            foreach(IPAddress ip in Dns.GetHostByName(hostName).AddressList)
+            {
+                if(ip.ToString().Contains("."))
+                {
+                    IP.Text = ip.ToString();
+                    break;
+                }
+            }
+            KhoiTaoUser();
+        }
+        public void AppendTextBox(string value)
+        {
+            if (InvokeRequired)
+            {
+                this.Invoke(new Action<string>(AppendTextBox), new object[] { value });
+                return;
+            }
+            KQ.Text += value;
+        }
+        private  void sendJson(TcpClient client,object obj)
+        {
+            byte[] jsonUtf8Bytes = JsonSerializer.SerializeToUtf8Bytes(obj);
+            
+            StreamWriter sw = new StreamWriter(client.GetStream());
+            //client.Send(jsonUtf8Bytes, jsonUtf8Bytes.Length, SocketFlags.None);
+            String S = Encoding.ASCII.GetString(jsonUtf8Bytes, 0, jsonUtf8Bytes.Length);
+            sw.WriteLine(S);
+            sw.Flush();
+        }
+        private void ThreadClient(TcpClient client)
+        {            
+            //byte[] data = new byte[1024];
+            StreamReader sr = new StreamReader(client.GetStream());
+            
+            //int recv = client.Receive(data);
+            //if (recv == 0) return;
+            string jsonString = sr.ReadLine();// Encoding.ASCII.GetString(data, 0, recv);
+            
+            MESSAGE.COMMON? com = JsonSerializer.Deserialize<MESSAGE.COMMON>(jsonString);
+            if (com!=null )
+            {
+                if(com.content!=null)
+                {
+                    switch (com.kind)
+                    {
+                        case 1:
+                            { 
+                            LOGIN? login = JsonSerializer.Deserialize<LOGIN>(com.content);
+                            if (login != null && login.username != null && DS.Keys.Contains(login.username) && login.pass == DS[login.username])
+                            {
+                                com = new COMMON(3, "OK");
+                                sendJson(client, com);
+                                DSClient.Remove(login.username);
+                                DSClient.Add(login.username, client);
+                            }
+                            else
+                            {
+                                com = new COMMON(3, "CANCEL");
+                                sendJson(client, com);
+                                return;
+                            }
+                            break;
+                            }
+                        case 5:
+                            {
+                                LOGIN? login = JsonSerializer.Deserialize<LOGIN>(com.content);
+                                if (login != null && login.username != null && !DS.Keys.Contains(login.username))
+                                {
+                                    DS.Add(login.username, login.pass);
+                                    com = new COMMON(3, "OK");
+                                    sendJson(client, com);                                    
+                                }
+                                else
+                                {
+                                    com = new COMMON(3, "CANCEL");
+                                    sendJson(client, com);
+                                    return;
+                                }
+                            }
+                            
+                            break;
+                    }
+                    
+                }
+                else
+                {
+                    com = new COMMON(3, "CANCEL");
+                    sendJson(client, com);                    
+                    return;
+                }                
+            }
+            try
+            {
+                bool tieptuc = true;
+                while (tieptuc)
+                {
+                    //data = new byte[1024];
+                    //recv = client.Receive(data);
+                    //if (recv == 0) continue;
+                    //string s = Encoding.ASCII.GetString(data, 0, recv);
+                    string s = sr.ReadLine();
+                    if (s.ToUpper().Equals("QUIT")) break;
+                    com = JsonSerializer.Deserialize<MESSAGE.COMMON>(s);
+
+                    if (com != null && com.content != null)
+                    {
+                        switch (com.kind)
+                        {
+                            case 2:
+                                MESSAGE.MESSAGE? mes = JsonSerializer.Deserialize<MESSAGE.MESSAGE>(com.content);
+                                if (mes != null && mes.usernameReceiver != null)
+                                {
+                                    if (DSClient.Keys.Contains(mes.usernameReceiver))
+                                    {
+                                        AppendTextBox(mes.usernameSender + " send to " + mes.usernameReceiver + " content: " + mes.content + Environment.NewLine);
+                                        TcpClient friend = DSClient[mes.usernameReceiver];
+                                        StreamWriter sw = new StreamWriter(friend.GetStream());
+                                        sw.WriteLine(s);
+                                        sw.Flush();
+                                        //friend.Send(data, recv, SocketFlags.None);
+                                    }
+                                    else//Nhom
+                                    {
+                                        if (DSNhom.Keys.Contains(mes.usernameReceiver)) 
+                                        {
+                                            if (DSNhom[mes.usernameReceiver].Contains(mes.usernameSender))
+                                            {
+                                                AppendTextBox(mes.usernameSender + " send to " + mes.usernameReceiver + " content: " + mes.content + Environment.NewLine);
+                                                foreach (String user in DSNhom[mes.usernameReceiver])
+                                                {
+                                                    if (DSClient.Keys.Contains(user))
+                                                    {
+                                                        TcpClient friend = DSClient[user];
+                                                        StreamWriter sw = new StreamWriter(friend.GetStream());
+                                                        sw.WriteLine(s);
+                                                        sw.Flush();
+                                                        //friend.Send(data, recv, SocketFlags.None);
+                                                    }
+                                                }
+                                            }
+                                            else
+                                            {
+                                                com = new COMMON(10, "CANCEL");
+                                                sendJson(client, com);
+                                            }
+                                        }
+                                        else
+                                        {
+                                            com = new COMMON(11, "CANCEL");
+                                            sendJson(client, com);
+                                        }
+
+                                    }
+                                }
+                                break;
+                            case 4:
+                                DSClient[com.content].Close();
+                                DSClient.Remove(com.content);
+                                tieptuc = false;
+                                break;
+                            case 6:
+                                {
+
+                                    if (!DSNhom.Keys.Contains(com.content))
+                                    {
+                                        DSNhom.Add(com.content, new List<string>());
+                                        com = new COMMON(8, "OK");
+                                        sendJson(client, com);
+                                    }
+                                    else
+                                    {
+                                        com = new COMMON(8, "CANCEL");
+                                        sendJson(client, com);
+                                        //return;
+                                        
+                                    }
+                                }
+                                break;
+                            case 7:
+                                {
+                                    MESSAGE.ADDNHOM? obj = JsonSerializer.Deserialize<MESSAGE.ADDNHOM>(com.content);
+                                    if (!DSNhom.Keys.Contains(obj.GrpName))
+                                    {
+                                        com = new COMMON(9, "CANCEL");
+                                        sendJson(client, com);
+                                        return;
+                                        
+                                    }                                    
+                                    else 
+                                    {
+                                        foreach(var user in obj.members)
+                                            if (!DS.Keys.Contains(user))
+                                            {
+                                                com = new COMMON(9, "CANCEL");
+                                                sendJson(client, com);
+                                                return;
+                                            }
+                                        foreach (var user in obj.members)
+                                        {
+                                            if (!DSNhom[obj.GrpName].Contains(user))                                            
+                                                    DSNhom[obj.GrpName].Add(user);
+                                        }
+                                        
+                                        //DSNhom.Add(com.content, new List<string>());
+                                        com = new COMMON(9, "OK");
+                                        sendJson(client, com);
+                                    }
+                                }
+                                break;
+                            
+
+                        }
+                    }
+                }
+                //client.Shutdown(SocketShutdown.Both);
+                client.Close();
+            }
+            catch (Exception)
+            {
+                //server.Close();
+            }
+
+        }
+        private void ThreadTask()
+        {
+            while (active)
+            {
+                try
+                {
+                    //Socket client = server.Accept();
+                    TcpClient client = server.AcceptTcpClient();
+                    var t = new Thread(() => ThreadClient(client));
+                    t.Start();
+                }
+                catch (Exception)
+                {
+                    active = false;
+                }
+                               
+            }
+            
+            
+            
+            
+        }
+        private void Start_Click(object sender, EventArgs e)
+        {
+            active = true;
+            //iep = new IPEndPoint(IPAddress.Parse(IP.Text), int.Parse(PORT.Text));
+            //server = new Socket(AddressFamily.InterNetwork, SocketType.Stream,ProtocolType.Tcp);
+            //server.Bind(iep);
+            //server.Listen(10);
+
+
+            iep = new IPEndPoint(IPAddress.Parse(IP.Text), int.Parse(PORT.Text));
+            server = new TcpListener(iep);
+            server.Start();
+           
+            
+            //Console.WriteLine("Cho  ket  noi  tu  client");
+            KQ.Text += "Cho  ket  noi  tu  client" + Environment.NewLine;
+            
+            
+            Thread trd = new Thread(new ThreadStart(this.ThreadTask));
+            trd.IsBackground = true;
+            trd.Start();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            active = false;
+        }
+    }
+}
